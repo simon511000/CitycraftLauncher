@@ -41,11 +41,11 @@ if(!isDev){
     ipcRenderer.on('autoUpdateNotification', (event, arg, info) => {
         switch(arg){
             case 'checking-for-update':
-                loggerAutoUpdater.log('Checking for update..')
-                settingsUpdateButtonStatus('Checking for Updates..', true)
+                loggerAutoUpdater.log('Verificat..')
+                settingsUpdateButtonStatus('Recherche de mises à jour...', true)
                 break
             case 'update-available':
-                loggerAutoUpdaterSuccess.log('New update available', info.version)
+                loggerAutoUpdaterSuccess.log('Mise à jour disponible', info.version)
                 
                 if(process.platform === 'darwin'){
                     info.darwindownload = `https://github.com/simon511000/CitycraftLauncher/releases/download/v${info.version}/helioslauncher-${info.version}.dmg`
@@ -55,7 +55,7 @@ if(!isDev){
                 populateSettingsUpdateInformation(info)
                 break
             case 'update-downloaded':
-                loggerAutoUpdaterSuccess.log('Update ' + info.version + ' ready to be installed.')
+                loggerAutoUpdaterSuccess.log('La Mise à Jour ' + info.version + ' est prête à être installé.')
                 settingsUpdateButtonStatus('Install Now', false, () => {
                     if(!isDev){
                         ipcRenderer.send('autoUpdateAction', 'installUpdateNow')
@@ -65,7 +65,7 @@ if(!isDev){
                 break
             case 'update-not-available':
                 loggerAutoUpdater.log('No new update found.')
-                settingsUpdateButtonStatus('Check for Updates')
+                settingsUpdateButtonStatus('Recherche de mises à jour...')
                 break
             case 'ready':
                 updateCheckListener = setInterval(() => {

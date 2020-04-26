@@ -495,7 +495,7 @@ function resolveModsForUI(){
 
     const modStr = parseModulesForUI(distro.getServer(serv).getModules(), false, servConf.mods)
 
-    document.getElementById('settingsReqModsContent').innerHTML = modStr.reqMods
+    // document.getElementById('settingsReqModsContent').innerHTML = modStr.reqMods
     document.getElementById('settingsOptModsContent').innerHTML = modStr.optMods
 }
 
@@ -659,7 +659,7 @@ function resolveDropinModsForUI(){
                 </div>`
     }
 
-    document.getElementById('settingsDropinModsContent').innerHTML = dropinMods
+    // document.getElementById('settingsDropinModsContent').innerHTML = dropinMods
 }
 
 /**
@@ -691,30 +691,30 @@ function bindDropinModsRemoveButton(){
  * server configuration.
  */
 function bindDropinModFileSystemButton(){
-    const fsBtn = document.getElementById('settingsDropinFileSystemButton')
-    fsBtn.onclick = () => {
-        DropinModUtil.validateDir(CACHE_SETTINGS_MODS_DIR)
-        shell.openItem(CACHE_SETTINGS_MODS_DIR)
-    }
-    fsBtn.ondragenter = e => {
-        e.dataTransfer.dropEffect = 'move'
-        fsBtn.setAttribute('drag', '')
-        e.preventDefault()
-    }
-    fsBtn.ondragover = e => {
-        e.preventDefault()
-    }
-    fsBtn.ondragleave = e => {
-        fsBtn.removeAttribute('drag')
-    }
+    // const fsBtn = document.getElementById('settingsDropinFileSystemButton')
+    // fsBtn.onclick = () => {
+    //     DropinModUtil.validateDir(CACHE_SETTINGS_MODS_DIR)
+    //     shell.openItem(CACHE_SETTINGS_MODS_DIR)
+    // }
+    // fsBtn.ondragenter = e => {
+    //     e.dataTransfer.dropEffect = 'move'
+    //     fsBtn.setAttribute('drag', '')
+    //     e.preventDefault()
+    // }
+    // fsBtn.ondragover = e => {
+    //     e.preventDefault()
+    // }
+    // fsBtn.ondragleave = e => {
+    //     fsBtn.removeAttribute('drag')
+    // }
 
-    fsBtn.ondrop = e => {
-        fsBtn.removeAttribute('drag')
-        e.preventDefault()
+    // fsBtn.ondrop = e => {
+    //     fsBtn.removeAttribute('drag')
+    //     e.preventDefault()
 
-        DropinModUtil.addDropinMods(e.dataTransfer.files, CACHE_SETTINGS_MODS_DIR)
-        reloadDropinMods()
-    }
+    //     DropinModUtil.addDropinMods(e.dataTransfer.files, CACHE_SETTINGS_MODS_DIR)
+    //     reloadDropinMods()
+    // }
 }
 
 /**

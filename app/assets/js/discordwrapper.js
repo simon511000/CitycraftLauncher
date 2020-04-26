@@ -10,8 +10,8 @@ exports.initRPC = function(genSettings, servSettings, initialDetails = 'Waiting 
     client = new Client({ transport: 'ipc' })
 
     activity = {
-        details: initialDetails,
-        state: 'Server: ' + servSettings.shortId,
+        details: 'https://discord.gg/q94RCwc',
+        state: 'CityCraft',
         largeImageKey: servSettings.largeImageKey,
         largeImageText: servSettings.largeImageText,
         smallImageKey: genSettings.smallImageKey,
